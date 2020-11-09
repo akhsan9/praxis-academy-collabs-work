@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import json #import config file
 
-with open('/etc/portfolio_secret_key.json') as config_file: #open config file
+with open('/etc/warehouse.json') as config_file: #open config file
     config = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

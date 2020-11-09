@@ -1,14 +1,12 @@
 {% extends 'inventory_data/base.html' %}
 
-
 {% block user %}
 {% if user.is_authenticated %}  
-<p></p>
+	<a href="{% url 'logout' %}" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Logout</span></a>
 {% else %}
-<a href="{% url 'login' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Login</span></a>
+	<a href="{% url 'login' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Login</span></a>
 {% endif %}
 {% endblock user %}
-
 
 {% block content %}
 {% if user.is_authenticated %}  

@@ -79,4 +79,9 @@ class StockHistory(models.Model):
 		verbose_name_plural = "Stock History Store A"
 
 	def __str__(self):
+<<<<<<< HEAD
 		return self.item_name
+=======
+		return self.item_name
+
+>>>>>>> master

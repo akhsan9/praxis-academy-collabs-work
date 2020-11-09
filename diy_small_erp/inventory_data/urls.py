@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import StockListView, StockDetailView, SearchResultsView, StockDeleteView, HistoryStockListView
+from .views import StockListView, StockDetailView, SearchResultsView, StockDeleteView, HistoryStockListView, HistorySearchResultsView
 
 urlpatterns = [
 	path('', views.home, name='home'),
@@ -13,5 +13,5 @@ urlpatterns = [
 	path('items-store-a/<slug:slug>/selling', views.selling_items, name='selling'),
 	path('items-history-store-a/', HistoryStockListView.as_view(), name='items-history'),
 	path('search-store-a/', SearchResultsView.as_view(), name='search_results'),
-	# path('search-history-store-a/', SearchHistoryResultsView.as_view(), name='search_history_results'),
+	path('search-history-store-a/', HistorySearchResultsView.as_view(), name='search_history_results'),
 	]
