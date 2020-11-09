@@ -7,26 +7,22 @@
 				<th>Brand</th>
 				<th>Product</th>
 				<th>Quantity</th>
-				<th>Actions</th>
+				<th>Supplier</th>
+				<th>Buyer</th>
 			</tr>
 		</thead>
 		<tbody>
 
 {% if user.is_authenticated %}	
-	{% for result in object_list_history %}
+	{% for stock in object_list %}
 		<tr>
     <td>{{forloop.counter}}</td>        
-    <td>{{result.ean}}</td>
-    <td>{{result.brand}}</td>
-    <td>{{result.item_name}}</td>
-    <td>{{result.quantity}}</td>
-		<td>
-        <a href="{{ result.get_product_url }}"><i title="View Detail"></i>View Detail</a>        
-        {% if user.is_superuser %}
-        <a href="{{ result.get_edit_url }}"><i title="Edit"></i>Edit</a>
-        <a href="{{ result.get_delete_url }}"><i title="Delete"></i>Delete</a>
-        {% endif %}
-    </td>
+    <td>{{stock.ean}}</td>
+    <td>{{stock.brand}}</td>
+    <td>{{stock.item_name}}</td>
+    <td>{{stock.quantity}}</td>
+    <td>{{stock.supplier}}</td>
+    <td>{{stock.issue_to}}</td>
 		</tr>
 	{% empty %}
     <p>Maaf, hasil tidak ditemukan.</p>
@@ -34,7 +30,6 @@
 {% else %}
 	<p>Silakan Login terlebih dahulu untuk mengakses data.</p>
 {% endif %}	
-
 </tbody>
 
 {% endblock content %}

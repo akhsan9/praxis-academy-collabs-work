@@ -156,11 +156,9 @@ class HistoryStockListView(ListView):
 class HistorySearchResultsView(ListView):
 	model = StockHistory
 	template_name = 'inventory_data/history_search_result.html'
-	#eng: function for get query for search result
-	#ind: function untuk mendapatkan query dan menampilkan di halaman search result
 	def get_queryset(self): 
 		query = self.request.GET.get('q')
-		object_list_history = StockHistory.objects.filter(
-			Q(brand__icontains=query) | Q(item_name__icontains=query)
+		object_list = StockHistory.objects.filter(
+			Q(supplier__icontains=query) | Q(issue_to__icontains=query)
 		)
-		return object_list_history
+		return object_list
