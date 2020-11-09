@@ -96,6 +96,7 @@ def receive_items(request, slug):
 			brand = instance.brand,
 			item_name = instance.item_name, 
 			quantity = instance.quantity,
+			receive_invoice = instance.receive_invoice,
 			receive_quantity = instance.receive_quantity,
 			receive_by = instance.receive_by,
 			supplier = instance.supplier
@@ -129,6 +130,7 @@ def selling_items(request, slug):
 			brand = instance.brand,
 			item_name = instance.item_name, 
 			quantity = instance.quantity,
+			issue_invoice = instance.issue_invoice,
 			issue_quantity = instance.issue_quantity, 
 			issue_by = instance.issue_by,
 			issue_to = instance.issue_to
