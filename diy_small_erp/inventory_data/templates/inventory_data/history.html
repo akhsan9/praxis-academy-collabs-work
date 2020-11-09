@@ -3,7 +3,7 @@
 {% block search %}
 {% if user.is_authenticated %}  
 <span>
-  <form action="{% url 'search_results' %}" method="get" class="search-form">
+  <form action="{% url 'search_history_results' %}" method="get" class="search-form">
     <div class="form-group">
         <input name="q" type="text" class="form-control" placeholder="Search">
     </div>

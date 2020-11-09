@@ -150,3 +150,17 @@ class HistoryStockListView(ListView):
 	template_name = 'inventory_data/history.html'
 	context_object_name ='queryset_history'
 	ordering = ['-last_updated']
+
+#eng: showing search result
+#ind: melihat result
+class HistorySearchResultsView(ListView):
+	model = StockHistory
+	template_name = 'inventory_data/history_search_result.html'
+	#eng: function for get query for search result
+	#ind: function untuk mendapatkan query dan menampilkan di halaman search result
+	def get_queryset(self): 
+		query = self.request.GET.get('q')
+		object_list_history = StockHistory.objects.filter(
+			Q(brand__icontains=query) | Q(item_name__icontains=query)
+		)
+		return object_list_history
