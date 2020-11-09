@@ -27,9 +27,9 @@ class StockEditForm(forms.ModelForm):
 class ReceiveForm(forms.ModelForm):
 	class Meta:
 		model = Stock
-		fields = ['receive_quantity', 'receive_by', 'supplier']
+		fields = ['supplier', 'receive_invoice' ,'receive_quantity', 'receive_by']
 
 class SellingForm(forms.ModelForm):
 	class Meta:
 		model = Stock
-		fields = ['issue_quantity', 'issue_by', 'issue_to']
+		fields = ['issue_to', 'issue_invoice', 'issue_quantity', 'issue_by']

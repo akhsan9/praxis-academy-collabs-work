@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'warehouse.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "warehouse_2", #replace with your database name
+        "NAME": "warehouse_3", #replace with your database name
         "USER": "dimasutomo", #replace with your username
         "PASSWORD": "",
         "HOST": "localhost",

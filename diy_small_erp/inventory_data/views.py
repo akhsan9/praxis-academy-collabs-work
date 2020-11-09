@@ -159,6 +159,7 @@ class HistorySearchResultsView(ListView):
 	def get_queryset(self): 
 		query = self.request.GET.get('q')
 		object_list = StockHistory.objects.filter(
-			Q(supplier__icontains=query) | Q(issue_to__icontains=query)
+			Q(supplier__icontains=query) | Q(issue_to__icontains=query) | Q(ean__icontains=query)
+
 		)
 		return object_list
