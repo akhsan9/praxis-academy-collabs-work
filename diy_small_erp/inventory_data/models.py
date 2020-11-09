@@ -19,7 +19,7 @@ class Stock(models.Model):
 
 #selling stock
 	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
-	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Invoice Sell Out")
 	issue_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name="Sell Out Quantity")
 	issue_by = models.CharField(max_length=50, blank=True, null=True, verbose_name='Warehouse Admin')
 
