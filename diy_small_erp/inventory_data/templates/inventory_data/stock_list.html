@@ -29,7 +29,6 @@
 
 
 {% block content %}
-
     <thead>
       <tr>
         <th scope="col">No</th>
@@ -37,6 +36,7 @@
         <th scope="col">Brand</th>
         <th scope="col">Product</th>
         <th scope="col">Stock Qty</th>
+        <th scope="col">Reorder Qty</th>
         <th scope="col">Date Added</th>
         <th scope="col">Last Edited</th>
         <th scope="col">Actions</th>
@@ -46,11 +46,19 @@
     {% if user.is_authenticated %}  
     {% for stock in inventory %}
       <tr>
+
         <td>{{forloop.counter}}</td>        
         <td>{{stock.ean}}</td>
         <td>{{stock.brand}}</td>
         <td>{{stock.item_name}}</td>
-        <td>{{stock.quantity}}</td>
+        <td>
+          {% if stock.quantity <= stock.reorder_level %}
+          {{stock.quantity}} (Perlu reorder)
+          {% else %}
+          {{stock.quantity}}
+          {% endif %}
+        </td>        
+        <td>{{stock.reorder_level}}</td>
         <td>{{stock.date_added}}</td>
         <td>{{stock.last_updated}}</td>        
         <td>

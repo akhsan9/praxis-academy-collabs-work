@@ -16,7 +16,11 @@ class Stock(models.Model):
 	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
 =======
 	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
+<<<<<<< HEAD
 	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+>>>>>>> master
+=======
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
 >>>>>>> master
 	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
 	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")
@@ -71,7 +75,11 @@ class StockHistory(models.Model):
 	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
 =======
 	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
+<<<<<<< HEAD
 	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+>>>>>>> master
+=======
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
 >>>>>>> master
 	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
 	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")

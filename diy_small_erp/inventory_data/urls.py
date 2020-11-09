@@ -14,4 +14,5 @@ urlpatterns = [
 	path('items-history-store-a/', HistoryStockListView.as_view(), name='items-history'),
 	path('search-store-a/', SearchResultsView.as_view(), name='search_results'),
 	path('search-history-store-a/', HistorySearchResultsView.as_view(), name='search_history_results'),
+	path('reorder_level/<slug:slug>/', views.reorder_level, name="reorder_level"),
 	]
