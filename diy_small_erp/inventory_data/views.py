@@ -160,6 +160,19 @@ class HistorySearchResultsView(ListView):
 		query = self.request.GET.get('q')
 		object_list = StockHistory.objects.filter(
 			Q(supplier__icontains=query) | Q(issue_to__icontains=query) | Q(ean__icontains=query)
-
 		)
 		return object_list
+
+def reorder_level(request, slug):
+	reorder = Stock.objects.get(slug=slug)
+	form = ReorderLevelForm(request.POST or None, instance=reorder)
+	if form.is_valid():
+		instance = form.save(commit=False)
+		instance.save()
+		messages.success(request, "Reorder level for " + str(instance.item_name) + " is updated to " + str(instance.reorder_level))
+		return redirect("inventory-store-a")
+	context = {
+			"instance": reorder,
+			"form": form,
+		}
+	return render(request, "add_items.html", context)

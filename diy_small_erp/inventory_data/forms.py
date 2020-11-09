@@ -5,7 +5,7 @@ from .models import Stock
 class StockCreateForm(forms.ModelForm):
 	class Meta:
 		model = Stock
-		fields = ['slug','brand', 'ean', 'item_name', 'quantity', 'receive_by', 'supplier']
+		fields = ['slug','brand', 'ean', 'item_name', 'reorder_level']
 
 	def clean_category(self):
 		brand = self.cleaned_data.get('brand')
@@ -33,3 +33,8 @@ class SellingForm(forms.ModelForm):
 	class Meta:
 		model = Stock
 		fields = ['issue_to', 'issue_invoice', 'issue_quantity', 'issue_by']
+
+class ReorderLevelForm(forms.ModelForm):
+	class Meta:
+		model = Stock
+		fields = ['reorder_level']

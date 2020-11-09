@@ -13,7 +13,7 @@ class Stock(models.Model):
 	
 #receive stock
 	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
-	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
 	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
 	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")
 
@@ -60,7 +60,7 @@ class StockHistory(models.Model):
 	
 #receive stock
 	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
-	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
 	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
 	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")
 

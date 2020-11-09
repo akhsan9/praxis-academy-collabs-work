@@ -2,16 +2,18 @@
 {% block content %}
 		<thead>
 			<tr>
-				<th>No</th>
-				<th>ID</th>
-				<th>Brand</th>
-				<th>Product</th>
-				<th>Quantity</th>
-				<th>Supplier</th>
-				<th>Receive Quantity</th>
-				<th>Buyer</th>
-				<th>Sell Out Qty</th>
-				<th>Date</th>
+	      <th>No</th>
+	      <th>ID</th>
+	      <th>Brand</th>
+	      <th>Product</th>
+	      <th>Quantity</th>
+	      <th>Supplier</th>
+	      <th>Receive Quantity</th>
+	      <th>Receive Inv No.</th>
+	      <th>Buyer</th>
+	      <th>Sell Out Qty</th>
+	      <th>Sell out Inv No.</th>
+	      <th>Date</th>
 			</tr>
 		</thead>
 
@@ -19,19 +21,21 @@
 {% if user.is_authenticated %}	
 	{% for stock in object_list %}
 		<tr>
-    <td>{{forloop.counter}}</td>        
-    <td>{{stock.ean}}</td>
-    <td>{{stock.brand}}</td>
-    <td>{{stock.item_name}}</td>
-    <td>{{stock.quantity}}</td>
-    <td>{{stock.supplier}}</td>
-    <td>{{stock.receive_quantity}}</td>    
-    <td>{{stock.issue_to}}</td>
-    <td>{{stock.issue_quantity}}</td>
-    <td>{{stock.last_updated}}</td>
+      <td>{{forloop.counter}}</td>        
+      <td>{{stock.ean}}</td>
+      <td>{{stock.brand}}</td>
+      <td>{{stock.item_name}}</td>
+      <td>{{stock.quantity}}</td>
+      <td>{{stock.supplier}}</td>
+      <td>{{stock.receive_quantity}}</td>
+      <td>{{stock.receive_invoice}}</td>
+      <td>{{stock.issue_to}}</td>
+      <td>{{stock.issue_quantity}}</td>
+      <td>{{stock.issue_invoice}}</td>
+      <td>{{stock.last_updated}}</td>
 		</tr>
 	{% empty %}
-    <p>Maaf, hasil tidak ditemukan.</p>
+    <p>Sorry, no result.</p>
 	{% endfor %}
 {% else %}
 	<p>Silakan Login terlebih dahulu untuk mengakses data.</p>

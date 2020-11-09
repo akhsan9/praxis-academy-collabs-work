@@ -32,8 +32,10 @@
         <th>Quantity</th>
         <th>Supplier</th>
         <th>Receive Quantity</th>
+        <th>Receive Inv No.</th>
         <th>Buyer</th>
         <th>Sell Out Qty</th>
+        <th>Sell out Inv No.</th>
         <th>Date</th>
       </tr>
     </thead>
@@ -47,9 +49,11 @@
         <td>{{stock.item_name}}</td>
         <td>{{stock.quantity}}</td>
         <td>{{stock.supplier}}</td>
-        <td>{{stock.receive_quantity}}</td>    
+        <td>{{stock.receive_quantity}}</td>
+        <td>{{stock.receive_invoice}}</td>
         <td>{{stock.issue_to}}</td>
         <td>{{stock.issue_quantity}}</td>
+        <td>{{stock.issue_invoice}}</td>
         <td>{{stock.last_updated}}</td>
       </tr>
     {% endfor %}
