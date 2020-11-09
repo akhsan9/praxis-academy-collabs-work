@@ -1,0 +1,16 @@
+{% extends 'inventory_data/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<form method="POST">
+	{% if user.is_authenticated %}	
+		{% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="save btn btn-default">Save</button>
+  {% else %}
+  <p>Silakan login untuk menambahkan to do list.<a href="{% url 'login' %}"><br /> Login ke halaman admin</a></p>
+  {% endif %}
+</form>
+
+{% endblock content %}

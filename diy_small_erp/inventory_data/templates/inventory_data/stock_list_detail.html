@@ -1,0 +1,37 @@
+{% extends 'inventory_data/base.html' %}
+{% block content %}
+    <thead>
+      <tr>
+        <th scope="col">EAN</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Product</th>
+        <th scope="col">Stock Qty</th>
+        <th scope="col">Date Added</th>
+        <th scope="col">Last Edited</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if user.is_authenticated %}  
+      <tr>     
+        <td>{{object.ean}}</td>
+        <td>{{object.brand}}</td>
+        <td>{{object.item_name}}</td>
+        <td>{{object.quantity}}</td>
+        <td>{{object.date_added}}</td>
+        <td>{{object.last_updated}}</td>
+        <td>
+          {% if user.is_superuser %}
+          <a href="{{ object.get_edit_url }}"><i title="Edit"></i>Edit</a>
+          <a href="{{ object.get_delete_url }}"><i title="Delete"></i>Delete</a>
+          {% endif %}
+          <a href="{{ object.get_receive_url }}"><i title="Delete"></i>Receive</a>
+          <a href="{{ object.get_selling_url }}"><i title="Delete"></i>Selling</a>
+      </td>
+      </tr>
+    {% else %}
+      <p>Silakan login untuk menambahkan to do list.<a href="{% url 'login' %}"> Login ke halaman admin</a></p>
+    {% endif %}
+    </tbody>
+
+{% endblock content %}

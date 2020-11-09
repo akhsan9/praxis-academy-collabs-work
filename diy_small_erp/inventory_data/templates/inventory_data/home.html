@@ -1,0 +1,23 @@
+{% extends 'inventory_data/base.html' %}
+
+
+{% block user %}
+{% if user.is_authenticated %}  
+<p></p>
+{% else %}
+<a href="{% url 'login' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Login</span></a>
+{% endif %}
+{% endblock user %}
+
+
+{% block content %}
+{% if user.is_authenticated %}  
+		<h1>Selamat datang</h1>
+		<p>Lihat Stock:</p>
+		<ul><a href="{% url 'inventory-store-a' %}">Toko A</a></ul>
+		<ul><a href="{% url 'inventory-store-b' %}">Toko B</a></ul>
+{% else %}
+		<p>Sorry, intern access only.</p>
+{% endif %}
+
+{% endblock content %}
