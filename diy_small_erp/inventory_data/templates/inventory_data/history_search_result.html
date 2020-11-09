@@ -1,0 +1,34 @@
+{% extends 'inventory_data/base.html' %}
+{% block content %}
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>ID</th>
+				<th>Brand</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Supplier</th>
+				<th>Buyer</th>
+			</tr>
+		</thead>
+		<tbody>
+
+{% if user.is_authenticated %}	
+	{% for stock in object_list %}
+		<tr>
+    <td>{{forloop.counter}}</td>        
+    <td>{{stock.ean}}</td>
+    <td>{{stock.brand}}</td>
+    <td>{{stock.item_name}}</td>
+    <td>{{stock.quantity}}</td>
+    <td>{{stock.supplier}}</td>
+    <td>{{stock.issue_to}}</td>
+		</tr>
+	{% empty %}
+    <p>Maaf, hasil tidak ditemukan.</p>
+	{% endfor %}
+{% else %}
+	<p>Silakan Login terlebih dahulu untuk mengakses data.</p>
+{% endif %}	
+</tbody>
+{% endblock content %}
