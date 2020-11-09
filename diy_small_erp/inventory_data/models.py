@@ -12,16 +12,24 @@ class Stock(models.Model):
 	quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Total Quantity')
 	
 #receive stock
+<<<<<<< HEAD
 	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
+=======
+	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+>>>>>>> master
 	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
 	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")
-	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
 
 #selling stock
+<<<<<<< HEAD
 	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
+=======
+	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
+	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+>>>>>>> master
 	issue_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name="Sell Out Quantity")
 	issue_by = models.CharField(max_length=50, blank=True, null=True, verbose_name='Warehouse Admin')
-	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
 
 #extra
 	reorder_level = models.IntegerField(default='0', blank=True, null=True)
@@ -59,16 +67,25 @@ class StockHistory(models.Model):
 	quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Total Quantity')
 	
 #receive stock
+<<<<<<< HEAD
 	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
+=======
+	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier")
+>>>>>>> master
 	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
 	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")
-	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
+
 
 #selling stock
+<<<<<<< HEAD
 	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
+=======
+	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
+	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Invoice Sell Out")
+>>>>>>> master
 	issue_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name="Sell Out Quantity")
 	issue_by = models.CharField(max_length=50, blank=True, null=True, verbose_name='Warehouse Admin')
-	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
 
 #extra
 	reorder_level = models.IntegerField(default='0', blank=True, null=True)
@@ -81,7 +98,11 @@ class StockHistory(models.Model):
 	def __str__(self):
 <<<<<<< HEAD
 		return self.item_name
+<<<<<<< HEAD
 =======
 		return self.item_name
+
+>>>>>>> master
+=======
 
 >>>>>>> master

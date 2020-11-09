@@ -25,16 +25,16 @@
 {% block content %}
     <thead>
       <tr>
-        <th scope="col">No</th>
-        <th scope="col">EAN</th>
-        <th scope="col">Brand</th>
-        <th scope="col">Product</th>
-        <th scope="col">Stock Qty</th>
-        <th scope="col">Receive qty</th>
-        <th scope="col">Selling qty</th>        
-        <th scope="col">Buyer</th>      
-        <th scope="col">Supplier</th>  
-        <th scope="col">Last Updated</th>
+        <th>No</th>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Supplier</th>
+        <th>Receive Quantity</th>
+        <th>Buyer</th>
+        <th>Sell Out Qty</th>
+        <th>Date</th>
       </tr>
     </thead>
     <tbody>
@@ -46,11 +46,11 @@
         <td>{{stock.brand}}</td>
         <td>{{stock.item_name}}</td>
         <td>{{stock.quantity}}</td>
-        <td>{{stock.receive_quantity}}</td>
+        <td>{{stock.supplier}}</td>
+        <td>{{stock.receive_quantity}}</td>    
+        <td>{{stock.issue_to}}</td>
         <td>{{stock.issue_quantity}}</td>
-        <td>{{stock.issue_to}}</td>  
-        <td>{{stock.supplier}}</td>                            
-        <td>{{stock.last_updated}}</td>        
+        <td>{{stock.last_updated}}</td>
       </tr>
     {% endfor %}
     {% else %}

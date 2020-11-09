@@ -10,18 +10,10 @@ class StockCreateAdmin(admin.ModelAdmin):
    list_filter = ['brand']
    search_fields = ['brand', 'item_name']
 
+class StockCreateHistoryAdmin(admin.ModelAdmin):
+   list_display = ['ean', 'brand', 'item_name', 'receive_quantity', 'supplier', 'issue_quantity', 'issue_to']
+   list_filter = ['brand']
+   search_fields = ['brand', 'item_name', 'supplier', 'issue_to']
 
-# class StockCreateAdminStoreB(admin.ModelAdmin):
-#    list_display = ['ean', 'brand', 'item_name', 'quantity']
-#    form = StockCreateFormStoreB
-#    list_filter = ['brand']
-#    search_fields = ['brand', 'item_name']
-
-# class HistoryAdmin(SimpleHistoryAdmin):
-#     list_display = ['receive_quantity', 'receive_by', 'supplier']
-
-# admin.site.register(Stock, StockCreateAdmin)
 admin.site.register(Stock, StockCreateAdmin)
-admin.site.register(StockHistory)
-# admin.site.register(StockStoreB, StockCreateFormStoreB)
-
+admin.site.register(StockHistory, StockCreateHistoryAdmin)

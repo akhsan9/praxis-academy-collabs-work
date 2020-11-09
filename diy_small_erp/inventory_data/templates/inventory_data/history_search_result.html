@@ -8,11 +8,22 @@
 				<th>Product</th>
 				<th>Quantity</th>
 				<th>Supplier</th>
+<<<<<<< HEAD
 				<th>Buyer</th>
 			</tr>
 		</thead>
 		<tbody>
 
+=======
+				<th>Receive Quantity</th>
+				<th>Buyer</th>
+				<th>Sell Out Qty</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+
+<tbody>
+>>>>>>> master
 {% if user.is_authenticated %}	
 	{% for stock in object_list %}
 		<tr>
@@ -22,7 +33,14 @@
     <td>{{stock.item_name}}</td>
     <td>{{stock.quantity}}</td>
     <td>{{stock.supplier}}</td>
+<<<<<<< HEAD
     <td>{{stock.issue_to}}</td>
+=======
+    <td>{{stock.receive_quantity}}</td>    
+    <td>{{stock.issue_to}}</td>
+    <td>{{stock.issue_quantity}}</td>
+    <td>{{stock.last_updated}}</td>
+>>>>>>> master
 		</tr>
 	{% empty %}
     <p>Maaf, hasil tidak ditemukan.</p>
@@ -32,6 +50,10 @@
 {% endif %}	
 </tbody>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 =======
 
 >>>>>>> master
