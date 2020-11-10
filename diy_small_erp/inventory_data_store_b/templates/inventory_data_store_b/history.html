@@ -3,7 +3,7 @@
 {% block search %}
 {% if user.is_authenticated %}  
 <span>
-  <form action="{% url 'search_history_results' %}" method="get" class="search-form">
+  <form action="{% url 'search_results_store_b' %}" method="get" class="search-form">
     <div class="form-group">
         <input name="q" type="text" class="form-control" placeholder="Search">
     </div>
@@ -14,7 +14,7 @@
 
 {% block user %}
 {% if user.is_authenticated %}  
-  <a href="{% url 'add-items-store-a' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Receive & Input New Product</span></a>
+  <a href="{% url 'add-items-store-b' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Receive & Input New Product</span></a>
   <a href="{% url 'logout' %}" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Logout</span></a>
 {% else %}
   <a href="{% url 'login' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Login</span></a>
