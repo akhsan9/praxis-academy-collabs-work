@@ -28,7 +28,6 @@ class Stock(models.Model):
 	date_added = models.DateTimeField(auto_now_add=True, auto_now=False)
 	last_updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
-
 	class Meta:
 		verbose_name_plural = "Stock Store A"
 

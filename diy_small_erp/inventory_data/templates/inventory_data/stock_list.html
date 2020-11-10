@@ -8,7 +8,7 @@
 <span>
   <form action="{% url 'search_results' %}" method="get" class="search-form">
     <div class="form-group">
-        <input name="q" type="text" class="form-control" placeholder="Search">
+        <input name="q" type="text" class="form-control" placeholder="Search Toko A product">
     </div>
   </form>
 </span><br />
@@ -17,12 +17,12 @@
 
 {% block user %}
 
-{% if user.is_authenticated %}  
-  <a href="{% url 'add-items-store-a' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Receive & Input New Product</span></a>
-  <a href="{% url 'items-history' %}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>See all products history</span></a><br />
-  <a href="{% url 'logout' %}" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Logout</span></a>
+{% if user.is_authenticated %}
+  <a href="{% url 'add-items-store-a' %}" <button type="button" class="btn btn-success">Register New Product</button></a>
+  <a href="{% url 'items-history' %}" <button type="button" class="btn btn-success">All Stock History</button></a>
+  <a href="{% url 'logout' %}" <button type="button" class="btn btn-danger">Logout</button></a>
 {% else %}
-  <a href="{% url 'login' %}" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Login</span></a>
+  <a href="{% url 'login' %}" <button type="button" class="btn btn-success">Login</button></a>
 {% endif %}
 
 {% endblock user %}
@@ -62,7 +62,7 @@
         <td>{{stock.date_added}}</td>
         <td>{{stock.last_updated}}</td>        
         <td>
-          <a href="{{ stock.get_product_url }}"><i title="View Detail"></i>View Detail</a>        
+          <a href="{{ stock.get_product_url }}"><i title="View Detail"></i>Detail</a>        
           {% if user.is_superuser %}
           <a href="{{ stock.get_edit_url }}"><i title="Edit"></i>Edit</a>
           <a href="{{ stock.get_delete_url }}"><i title="Delete"></i>Delete</a>
