@@ -3,7 +3,6 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 
-
 class StockStoreB(models.Model):
 #items detail	
 	slug = models.SlugField(null=True, unique=True, blank=False, verbose_name="URL Product") 
@@ -13,20 +12,22 @@ class StockStoreB(models.Model):
 	quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Total Quantity')
 	
 #receive stock
+	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
 	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
 	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")
-	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
 
 #selling stock
+	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
+	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Invoice Sell Out")
 	issue_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name="Sell Out Quantity")
 	issue_by = models.CharField(max_length=50, blank=True, null=True, verbose_name='Warehouse Admin')
-	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
-	created_by = models.CharField(max_length=50, blank=True, null=True)
 
 #extra
 	reorder_level = models.IntegerField(default='0', blank=True, null=True)
 	date_added = models.DateTimeField(auto_now_add=True, auto_now=False)
 	last_updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
 
 	class Meta:
 		verbose_name_plural = "Stock Store B"
@@ -49,7 +50,34 @@ class StockStoreB(models.Model):
 	def get_selling_url(self):
 			return reverse('sellingstoreb', kwargs={'slug': self.slug}) #get slug url 
 
+class StockHistoryStoreB(models.Model):
+#items detail
+	slug = models.SlugField(blank=True, null=True, verbose_name="URL Product") 
+	brand = models.CharField(max_length=50, blank=True, null=True, verbose_name='Brand')
+	ean = models.CharField(max_length=50, blank=True, null=True, verbose_name='Product ID')
+	item_name = models.CharField(max_length=50, blank=True, null=True, verbose_name='Product Name')
+	quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Total Quantity')
+	
+#receive stock
+	supplier = models.CharField(max_length=50, blank=True, null=True, verbose_name="Supplier") 
+	receive_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="No. Invoice")
+	receive_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name='Received Quantity')
+	receive_by = models.CharField(max_length=50, blank=True, null=True, verbose_name="Warehouse Admin")
 
 
+#selling stock
+	issue_to = models.CharField(max_length=50, blank=True, null=True, verbose_name='Buyer')
+	issue_invoice = models.CharField(max_length=50, blank=True, null=True, verbose_name="Invoice Sell Out")
+	issue_quantity = models.IntegerField(default='0', blank=True, null=True, verbose_name="Sell Out Quantity")
+	issue_by = models.CharField(max_length=50, blank=True, null=True, verbose_name='Warehouse Admin')
 
+#extra
+	reorder_level = models.IntegerField(default='0', blank=True, null=True)
+	date_added = models.DateTimeField(auto_now_add=False, auto_now=False, null=True)
+	last_updated = models.DateTimeField(auto_now_add=False, auto_now=False, null=True)
 
+	class Meta:
+		verbose_name_plural = "Stock History Store B"
+
+	def __str__(self):
+		return self.item_name
